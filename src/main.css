@@ -1,0 +1,110 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --black: #555;
+  --clock-diameter: 160px;
+  --clock-radius: calc(var(--clock-diameter) / 2);
+  --one-min: 60s;
+  --one-hour: calc(var(--one-min) * 60);
+  --hour-length: calc(var(--clock-radius) * 0.6);
+  --min-length: calc(var(--clock-radius) * 0.8);
+  --sec-length: calc(var(--clock-radius) * 0.75);
+  --clock-padding: 10px;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  -webkit-app-region: drag;
+}
+
+#clock {
+  width: var(--clock-diameter);
+  height: var(--clock-diameter);
+  background-color: #fff;
+  border: 5px solid var(--black);
+  border-radius: 50%;
+  position: relative;
+  cursor: grab;
+}
+
+#hour-hand,
+#min-hand,
+#sec-hand {
+  display: block;
+  width: 5px;
+  position: absolute;
+  left: 50%;
+  transform-origin: bottom;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+#hour-hand {
+  height: var(--hour-length);
+  top: calc(50% - var(--hour-length));
+  z-index: 1;
+  background-color: #ff9ece;
+  animation-name: hour-rotate;
+  animation-duration: calc(var(--one-hour) * 12);
+}
+
+#min-hand {
+  height: var(--min-length);
+  top: calc(50% - var(--min-length));
+  z-index: 2;
+  background-color: #9e9eff;
+  animation-name: min-rotate;
+  animation-duration: var(--one-hour);
+}
+
+#sec-hand {
+  height: var(--sec-length);
+  top: calc(50% - var(--sec-length));
+  z-index: 3;
+  background-color: #777;
+  animation-name: sec-rotate;
+  animation-duration: var(--one-min);
+  animation-timing-function: steps(60);
+}
+
+.number {
+  color: var(--black);
+  display: inline-block;
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: calc(var(--clock-radius) * 0.4);
+  letter-spacing: -0.1em;
+  line-height: 0.8;
+  position: absolute;
+}
+
+#three {
+  right: var(--clock-padding);
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#six {
+  left: 50%;
+  bottom: var(--clock-padding);
+  transform: translateX(-50%);
+}
+
+#nine {
+  left: var(--clock-padding);
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#twelve {
+  left: 50%;
+  top: var(--clock-padding);
+  transform: translateX(-50%);
+}

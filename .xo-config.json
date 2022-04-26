@@ -1,0 +1,8 @@
+{
+  "envs": ["browser", "node", "es2021"],
+  "space": true,
+  "prettier": true,
+  "rules": {
+    "capitalized-comments": "off"
+  }
+}
