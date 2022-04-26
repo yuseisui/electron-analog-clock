@@ -1,0 +1,18 @@
+{
+  "private": true,
+  "name": "electron-analog-clock",
+  "productName": "Analog Clock",
+  "version": "1.0.0",
+  "description": "Simple analog clock",
+  "main": "main.cjs",
+  "scripts": {
+    "start": "electron .",
+    "lint": "xo"
+  },
+  "author": "Yusei Yamamoto <yuseiyamamoto.dev@outlook.com>",
+  "license": "MPL-2.0",
+  "devDependencies": {
+    "electron": "^18.1.0",
+    "xo": "^0.48.0"
+  }
+}
